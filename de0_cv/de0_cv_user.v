@@ -1,28 +1,3 @@
-module clock_divider_50_MHz_to_1_49_Hz
-(
-    input  clock_50_MHz,
-    input  reset_n,
-    output clock_1_49_Hz
-);
-
-    // 50 MHz / 2 ** 25 = 1.49 Hz
-
-    reg [24:0] counter;
-
-    always @ (posedge clock_50_MHz or negedge reset_n)
-    begin
-        if (! reset_n)
-            counter <= 0;
-        else
-            counter <= counter + 1;
-    end
-
-    assign clock_1_49_Hz = counter [24];
-
-endmodule
-
-//--------------------------------------------------------------------
-
 module single_digit_display
 (
     input      [3:0] digit,
