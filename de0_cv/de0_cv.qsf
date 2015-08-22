@@ -46,7 +46,6 @@ set_global_assignment -name LAST_QUARTUS_VERSION 15.0.0
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 
 set_global_assignment -name VERILOG_FILE ../de0_cv.v
-set_global_assignment -name VERILOG_FILE ../de0_cv_user.v
 
 set_global_assignment -name VERILOG_FILE ../../../MIPSfpga/rtl_up/mipsfpga_sys.v
 set_global_assignment -name VERILOG_FILE ../../../MIPSfpga/rtl_up/mipsfpga_ahb_ram_reset.v
