@@ -62,7 +62,7 @@ module de0_cv
     wire [31:0] HADDR, HRDATA, HWDATA;
     wire        HWRITE;
 
-    #ifdef UNNECESSARY
+    `ifdef UNNECESSARY
 
     wire EJ_TRST_N_probe  = GPIO_1 [22];
     wire EJ_TDI           = GPIO_1 [21];
@@ -104,7 +104,7 @@ module de0_cv
         .EJ_DINT          ( EJ_DINT         )
     );
 
-    #endif
+    `endif
 
     mipsfpga_sys mipsfpga_sys
     (
@@ -130,6 +130,11 @@ module de0_cv
         .SI_ColdReset_N   ( GPIO_1 [20]     ),
         .EJ_DINT          ( 1'b0            )
     );
+
+    assign GPIO_1 [15] = 1'b0;
+    assign GPIO_1 [14] = 1'b0;
+    assign GPIO_1 [13] = 1'b1;
+    assign GPIO_1 [12] = 1'b1;
 
     single_digit_display digit_5 (         HADDR   [31:28]   , HEX5 );
     single_digit_display digit_4 ( { 2'b0, IO_LEDR [17:16] } , HEX4 );
